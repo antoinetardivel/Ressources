@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @ressource.subcategory.id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ressource.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ressource.description %>
+</p>
+
+<p>
+  <strong>Mini description:</strong>
+  <%= @ressource.mini_description %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @ressource.link %>
+</p>
+
+<p>
+  <strong>Link2:</strong>
+  <%= @ressource.link2 %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @ressource.author.slug %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @ressource.category.title %>
+</p>
+
+<p>
+  <strong>Subcategory:</strong>
+  <%= @ressource.subcategory.title %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_ressource_path(@ressource) %> |
+<%= link_to 'Back', ressources_path %>
