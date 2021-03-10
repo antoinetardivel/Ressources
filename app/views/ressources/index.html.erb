@@ -20,10 +20,10 @@
       <th>Link</th>
       <th>Link2</th>
       <th>Author</th>
-      <th>User</th>
       <th>Category</th>
       <th>Subcategory</th>
       <th>Id</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -40,6 +40,7 @@
         <td><%= ressource.category.title %></td>
         <td><%= ressource.subcategory.title %></td>
         <td><%= ressource.id %></td>
+        <td><%= image_tag(ressource.image, width: 200) if ressource.image.attached? %></td>
         <td><%= link_to 'Show', ressource %></td>
         <td><%= link_to 'Edit', edit_ressource_path(ressource) %></td>
         <td><%= link_to 'Destroy', ressource, method: :delete, data: { confirm: 'Are you sure?' } %></td>

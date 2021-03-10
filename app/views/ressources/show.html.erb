@@ -2,7 +2,7 @@
 
 <p>
   <strong>Id:</strong>
-  <%= @ressource.subcategory.id %>
+  <%= @ressource.id %>
 </p>
 
 <p>
@@ -43,6 +43,10 @@
 <p>
   <strong>Subcategory:</strong>
   <%= @ressource.subcategory.title %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@ressource.image, width: 200) if @ressource.image.attached? %>
 </p>
 
 

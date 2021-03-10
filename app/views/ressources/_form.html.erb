@@ -51,6 +51,13 @@
     <%= form.select :subcategory_id, options_for_select(Subcategory.all.map{|sc|[sc.title, sc.id]}) %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <%# form.file_field :image :class => 'fileupload'%>
+    <div id="ImagePreview"></div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
