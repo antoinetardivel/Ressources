@@ -8,6 +8,7 @@ class SubcategoriesController < ApplicationController
 
   # GET /subcategories/1 or /subcategories/1.json
   def show
+    @ressources = Ressource.all
   end
 
   # GET /subcategories/new

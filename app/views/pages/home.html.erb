@@ -1,2 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<ul>
+<% lasts = @ressources.last(6) %>
+<% if !lasts.blank? %>
+    <% lasts.each.with_index do |ressource, index|%>
+        <li><%=ressource.id%></li>
+    <% end %>
+<% end %>
+</ul>

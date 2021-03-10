@@ -4,6 +4,7 @@ class RessourcesController < ApplicationController
   # GET /ressources or /ressources.json
   def index
     @ressources = Ressource.all
+    @ressources_paginate = Ressource.paginate(page: params[:page])
   end
 
   # GET /ressources/1 or /ressources/1.json

@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<%# @ressources = Ressource.paginate(page: params[:page], per_page: 4) %>
+<%# @ressources = Ressource.paginate(page: params[:page]) %>
 <h1>Ressources</h1>
+
+<ul>
+<% @ressources_paginate.each do |ressource| %>
+        <li><%= link_to ressource.title, ressource_path(ressource) %></li>
+<% end %>
+</ul>
+<%= will_paginate @ressources_paginate %>
 
 <table>
   <thead>
@@ -19,7 +28,7 @@
   </thead>
 
   <tbody>
-    <% @ressources.each do |ressource| %>
+    <% @ressources_paginate.each do |ressource| %>
       <tr>
         <td><%= ressource.title %></td>
         <td><%= ressource.description %></td>
@@ -29,7 +38,7 @@
         <td><%= ressource.author.slug %></td>
         <td><%= ressource.category.title %></td>
         <td><%= ressource.subcategory.title %></td>
-        <td><%= ressource.subcategory.id %></td>
+        <td><%= ressource.id %></td>
         <td><%= link_to 'Show', ressource %></td>
         <td><%= link_to 'Edit', edit_ressource_path(ressource) %></td>
         <td><%= link_to 'Destroy', ressource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,7 +46,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+<%= will_paginate @ressources_paginate %>
 
 <%= link_to 'New Ressource', new_ressource_path %>

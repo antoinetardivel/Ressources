@@ -1,3 +1,11 @@
+<ul>
+<% @ressources.each do |ressource|%>
+  <% if ressource.subcategory_id == @subcategory.id %>
+    <li><%= link_to ressource.title, ressource_path(ressource) %></li>
+  <% end %>
+<% end %>
+</ul>
+
 <p id="notice"><%= notice %></p>
 
 <p>

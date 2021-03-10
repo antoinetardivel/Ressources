@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Subcategories</h1>
-
+<ul>
+<% @subcategories.each do |subcategory|%>
+    <li><%= link_to subcategory.title, subcategory_path(subcategory) %></li>
+<% end %>
+</ul>
 <table>
   <thead>
     <tr>

@@ -1,5 +1,10 @@
-<p id="notice"><%= notice %></p>
-
+<ul>
+<% @ressources.each do |ressource|%>
+  <% if ressource.category_id == @category.id %>
+    <li><%= link_to ressource.title, ressource_path(ressource) %></li>
+  <% end %>
+<% end %>
+</ul>
 <p>
   <strong>Id:</strong>
   <%= @category.id %>
