@@ -11,6 +11,8 @@
 </ul>
 <%= will_paginate @ressources_paginate %>
 
+<% if user_signed_in? %>
+
 <table>
   <thead>
     <tr>
@@ -49,5 +51,6 @@
   </tbody>
 </table>
 <%= will_paginate @ressources_paginate %>
+<% end %>
 
 <%= link_to 'New Ressource', new_ressource_path %>
