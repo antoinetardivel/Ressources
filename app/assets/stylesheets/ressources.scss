@@ -52,6 +52,8 @@
     background-color: transparent !important;
     border-radius: 1em;
     background-color: #1A1A1A;
+    min-width: 70px;
+    min-height: 70px;
 }
 @media only screen and (max-width: 992px)  {
     .ressource-container{
@@ -72,4 +74,11 @@
     .rs-show-title-txt{
         font-size: 20px;
     }
+}
+.letter-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 19px;
 }

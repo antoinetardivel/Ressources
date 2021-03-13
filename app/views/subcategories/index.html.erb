@@ -8,12 +8,16 @@
   </div>
 </div>
 <div>
+<% if user_signed_in? %>
+  <%= link_to 'Nouvelle sous-catégorie', new_subcategory_path, :class => 'btn btn-darker shadow-smooth mt-3' %>
+<% end %>
 <div class="d-flex mt-3">
 <% @subcategories.each do |subcategory|%>
   <%= link_to subcategory.title, subcategory_path(subcategory), :class => 'btn btn-darker shadow-smooth mr-3' %>
 <% end %>
 </div>
 <% if user_signed_in? %>
+  <%= link_to 'Nouvelle sous-catégorie', new_subcategory_path, :class => 'btn btn-darker shadow-smooth mt-3' %>
   <table class="table my-3 text-white">
     <thead>
       <tr>
@@ -40,5 +44,4 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'Nouvelle sous-catégorie', new_subcategory_path, :class => 'btn btn-darker shadow-smooth' %>
 <% end %>

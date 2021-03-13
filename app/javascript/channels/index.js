@@ -70,6 +70,8 @@ document.addEventListener('turbolinks:load', function(){
 
                 barlat.style.width = '60px'
                 barlat.style.height = '80vh'
+
+                arrow.style.marginRight = '15px'
     
                 arrow1.style.width = '30px'
                 arrow1.style.transform = 'rotateZ(0deg)'

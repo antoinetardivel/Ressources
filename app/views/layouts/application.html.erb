@@ -31,6 +31,51 @@
         <div class="arrow2" id="arrow2"></div>
         <div class="arrow3" id="arrow3"></div>
       </div>
+      <% if request.path == ressources_path %>
+        <span class="current-cat">
+      <% end %>
+        <div class="barlat-cat d-flex align-items-center mt-3">
+          <%= link_to ressources_path, :action => 'go' do %>
+            <div class="barlat-cat-img letter-link">
+              R
+            </div>
+          <% end %>
+          <%= link_to "Toutes les ressources", ressources_path, :class => 'barlat-cat-link ml-3'%>
+        </div>
+      <% if request.path == ressources_path %>
+        </span>
+      <% end %>
+
+      <% if request.path == categories_path %>
+        <span class="current-cat">
+      <% end %>
+        <div class="barlat-cat d-flex align-items-center mt-3">
+          <%= link_to categories_path, :action => 'go' do %>
+            <div class="barlat-cat-img letter-link">
+              C
+            </div>
+          <% end %>
+          <%= link_to "Toutes les catégories", categories_path, :class => 'barlat-cat-link ml-3'%>
+        </div>
+      <% if request.path == categories_path %>
+        </span>
+      <% end %>
+
+      <% if request.path == subcategories_path %>
+        <span class="current-cat">
+      <% end %>
+        <div class="barlat-cat d-flex align-items-center mt-3">
+          <%= link_to subcategories_path, :action => 'go' do %>
+            <div class="barlat-cat-img letter-link">
+              SC
+            </div>
+          <% end %>
+          <%= link_to "Toutes les sous-catégories", subcategories_path, :class => 'barlat-cat-link ml-3'%>
+        </div>
+      <% if request.path == subcategories_path %>
+        </span>
+      <% end %>
+
       <% Category.all.each do |category| %>
         <% if request.path == category_path(category) %>
           <span class="current-cat">
