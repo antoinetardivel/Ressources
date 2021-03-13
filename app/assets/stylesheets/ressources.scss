@@ -1,3 +1,67 @@
 // Place all the styles related to the Ressources controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.ressource-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-column-gap: 16px;
+}
+.rs-show{
+    grid-column-start: 1;
+    grid-column-end: 11;
+}
+.rs-nav{
+    width: 100%;
+    padding: 1.5em;
+    background-color: #0E0E0E;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+.rs-random{
+    grid-column-start: 12;
+    grid-column-end: 18;
+    height: 100px;
+    // background-color: green;
+}
+.rs-show-link1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.rs-show-title-txt{
+    font-size: 30px;
+}
+.rs-show-img-container{
+    width: 70px;
+    height: 70px;
+    border-radius: 1em;
+    object-fit: cover;
+}
+.rs-show-img{
+    width: 70%;
+    object-fit: contain;
+    background-color: transparent !important;
+    // filter: invert(96%) sepia(4%) saturate(16%) hue-rotate(132deg) brightness(102%) contrast(108%);
+}
+@media only screen and (max-width: 992px)  {
+    .ressource-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .rs-random{
+        margin-top: 1em;
+    }
+    .rs-nav{
+        display: flex;
+        flex-direction: column;
+    }
+    .rs-show-link1{
+        margin-right: auto;
+        margin-top: 1em;
+    }
+    .rs-show-title-txt{
+        font-size: 20px;
+    }
+}

@@ -1,5 +1,6 @@
 class SubcategoriesController < ApplicationController
   before_action :set_subcategory, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /subcategories or /subcategories.json
   def index
@@ -9,6 +10,7 @@ class SubcategoriesController < ApplicationController
   # GET /subcategories/1 or /subcategories/1.json
   def show
     @ressources = Ressource.all
+    @ressources_paginate = Ressource.paginate(page: params[:page])
   end
 
   # GET /subcategories/new

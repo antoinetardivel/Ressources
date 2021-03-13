@@ -10,6 +10,7 @@ class RessourcesController < ApplicationController
 
   # GET /ressources/1 or /ressources/1.json
   def show
+    @random_ressources= Ressource.all.sample(3)
   end
 
   # GET /ressources/new

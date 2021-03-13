@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :ressources
   resources :authors
   root 'pages#home'
+  get "propositions" => "pages#propositions"
 end

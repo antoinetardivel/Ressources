@@ -11,50 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :mini_description %>
-    <%= form.text_area :mini_description %>
+    <%= form.text_area :mini_description, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :link %>
-    <%= form.text_field :link %>
+    <%= form.text_field :link, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :link2 %>
-    <%= form.text_field :link2 %>
+    <%= form.text_field :link2, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :author_id %>
-    <%= form.select :author_id, options_for_select(Author.all.map{|a|[a.slug, a.id]})%>
+    <%= form.select :author_id, options_for_select(Author.all.map{|a|[a.slug, a.id]}), {include_blank: false}, {required: false, autofocus: false, class: 'form-control'} %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :category_id %>
-    <%= form.select :category_id, options_for_select(Category.all.map{|c|[c.title, c.id]}) %>
+    <%= form.select :category_id, options_for_select(Category.all.map{|c|[c.title, c.id]}), {include_blank: false}, {required: false, autofocus: false, class: 'form-control'} %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :subcategory_id %>
-    <%= form.select :subcategory_id, options_for_select(Subcategory.all.map{|sc|[sc.title, sc.id]}) %>
+    <%= form.select :subcategory_id, options_for_select(Subcategory.all.map{|sc|[sc.title, sc.id]}), {include_blank: false}, {required: false, autofocus: false, class: 'form-control'} %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :image %>
-    <%= form.file_field :image %>
-    <%# form.file_field :image :class => 'fileupload'%>
+    <%= form.file_field :image, :class => 'text-white' %>
     <div id="ImagePreview"></div>
   </div>
 

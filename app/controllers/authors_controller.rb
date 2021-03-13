@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /authors or /authors.json
   def index
@@ -8,6 +9,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
+    @ressources_paginate = Ressource.paginate(page: params[:page])
   end
 
   # GET /authors/new

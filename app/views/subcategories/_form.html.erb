@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :color %>
-    <%= form.text_field :color %>
+    <%= form.text_field :color, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :category_id %>
-    <%= form.select :category_id, options_for_select(Category.all.map{|c|[c.title, c.id]}) %>
+    <%= form.select :category_id, options_for_select(Category.all.map{|c|[c.title, c.id]}), {include_blank: false}, {required: false, autofocus: false, class: 'form-control'} %>
   </div>
 
   <div class="actions">

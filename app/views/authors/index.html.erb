@@ -1,39 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Authors</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Description</th>
-      <th>Website</th>
-      <th>Slug</th>
-      <th>Id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @authors.each do |author| %>
+<div class="rs-nav shadow-smooth mt-3">
+  <div class="rs-show-left d-flex">
+    <div class="rs-show-title ml-3">
+      <h1 class="text-white font-weight-bold rs-show-title-txt">Auteurs</h1>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-wrap">
+<% @authors.each do |author|%>
+  <%= link_to "#{author.id}. #{author.slug}" , author_path(author), :class => 'btn btn-darker shadow-smooth mr-3 mt-3' %>
+<% end %>
+</div>
+<% if user_signed_in? %>
+  <table class="table my-3 text-white">
+    <thead>
       <tr>
-        <td><%= author.name %></td>
-        <td><%= author.last_name %></td>
-        <td><%= author.email %></td>
-        <td><%= author.description %></td>
-        <td><%= author.website %></td>
-        <td><%= author.slug %></td>
-        <td><%= author.id %></td>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Description</th>
+        <th>Website</th>
+        <th>Slug</th>
+        <th>Id</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr>
+          <td><%= author.name %></td>
+          <td><%= author.last_name %></td>
+          <td><%= author.email %></td>
+          <td><%= author.description %></td>
+          <td><%= author.website %></td>
+          <td><%= author.slug %></td>
+          <td><%= author.id %></td>
+          <td><%= link_to 'Show', author %></td>
+          <td><%= link_to 'Edit', edit_author_path(author) %></td>
+          <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Author', new_author_path %>
+  <%= link_to 'Nouvel auteur', new_author_path, :class => 'btn btn-darker shadow-smooth' %>
+<% end %>

@@ -1,55 +1,71 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @ressource.id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @ressource.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @ressource.description %>
-</p>
-
-<p>
-  <strong>Mini description:</strong>
-  <%= @ressource.mini_description %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @ressource.link %>
-</p>
-
-<p>
-  <strong>Link2:</strong>
-  <%= @ressource.link2 %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @ressource.author.slug %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @ressource.category.title %>
-</p>
-
-<p>
-  <strong>Subcategory:</strong>
-  <%= @ressource.subcategory.title %>
-</p>
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@ressource.image, width: 200) if @ressource.image.attached? %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_ressource_path(@ressource) %> |
-<%= link_to 'Back', ressources_path %>
+<div class="ressource-container mt-3">
+  <div class="rs-show">
+    <div class="rs-nav shadow-smooth">
+      <div class="rs-show-left d-flex">
+        <% if @ressource.image.attached?  %>
+          <%= image_tag(@ressource.image, :class => 'rs-show-img bg-dark d-flex justify-content-center align-items-center') %>
+        <% else %>
+          <div class="rs-show-img bg-dark d-flex justify-content-center align-items-center">
+              <p class="text-center m-0 font-weight-bold no-logo">Pas de logo</p>
+          </div>
+        <% end %>
+        <div class="rs-show-title ml-3">
+          <p class="text-white"><%= link_to 'Ressources', ressources_path %> > <%= @ressource.title %></p>
+          <h1 class="text-white font-weight-bold rs-show-title-txt"><%= @ressource.title %></h1>
+        </div>
+      </div>
+      <div class="rs-show-link1">
+        <%= link_to 'Le site de la ressource', "http://#{@ressource.link}", :class => 'btn btn-primary shadow-smooth' %>
+      </div>
+    </div>
+    <div class="d-flex mt-3">
+      <%= link_to @ressource.category.title, category_path(@ressource.category), :class => 'btn btn-darker shadow-smooth' %>
+      <%= link_to @ressource.subcategory.title, subcategory_path(@ressource.subcategory), :class => 'btn btn-darker shadow-smooth ml-3' %>
+    </div>
+    
+    <%# Author.all.map{|a| [a.id,a.slug ] } %>
+    <% Author.all.map{|a| [a.id,a.slug ] }.each.with_index do |tab, index|%>
+      <% if tab[0] == @ressource.author_id %>
+        <p class="text-white mt-3"><span class="font-weight-bold">Auteur :</span> <%= link_to tab[1], author_path(tab[0]), :class => 'author-link'%></p>
+      <% end %>
+    <% end %>
+    <% if @ressource.link2?  %>
+      <p class="text-white mt-3"><span class="font-weight-bold">Lien utile :</span> <%= @ressource.link2 %></p>
+    <% end %>
+    <h4 class="text-white font-weight-bold">Description:</h4>
+    <p class="text-white mt-3"><%= @ressource.description %></p>
+    <% if user_signed_in? %>
+      <%= link_to 'Éditer la ressource', edit_ressource_path(@ressource), :class => 'btn btn-darker shadow-smooth mt-3' %>
+    <% end %>
+  </div>
+  <div class="rs-random">
+    <h4 class="text-white font-weight-bold mt-3">Voir aussi :</h4>
+    
+    <% @random_ressources.each do |random_ressource|%>
+      <div class="card rs-card bg-darker mt-3">
+        <div class="card-body">
+          <div class="d-flex">
+            <% if random_ressource.image.attached?  %>
+              <%= image_tag(random_ressource.image, :class => 'rs-card-img bg-dark d-flex justify-content-center align-items-center') %>
+            <% else %>
+            <div class="rs-card-img bg-dark d-flex justify-content-center align-items-center">
+                <p class="text-center m-0 font-weight-bold no-logo">Pas de logo</p>
+            </div>
+            <% end %>
+            <div class="ml-3 rs-card-title-box">
+                <h5 class="card-title text-white font-weight-bold"><%=random_ressource.title%></h5>
+                <div class="d-flex mb-3">
+                    <%= link_to random_ressource.category.title , category_path(random_ressource.category), :class => 'card-text text-white' %>
+                    <%= link_to random_ressource.subcategory.title , subcategory_path(random_ressource.subcategory), :class => 'card-text ml-2 text-white' %>
+                </div>
+            </div>
+        </div>
+            <p class="card-text text-white mb-3"><%=random_ressource.mini_description%></p>
+            <div class="d-flex justify-content-end">
+                <%= link_to 'Voir plus' , ressource_path(random_ressource), :class => 'btn my-2 my-sm-0 btn-primary shadow-smooth' %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

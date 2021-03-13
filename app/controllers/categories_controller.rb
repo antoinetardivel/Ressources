@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /categories or /categories.json
   def index
@@ -9,6 +10,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1 or /categories/1.json
   def show
     @ressources = Ressource.all
+    @ressources_paginate = Ressource.paginate(page: params[:page])
   end
 
   # GET /categories/new

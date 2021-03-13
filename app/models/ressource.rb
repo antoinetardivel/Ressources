@@ -4,5 +4,5 @@ class Ressource < ApplicationRecord
   belongs_to :subcategory
   has_one_attached :image
 
-  self.per_page = 6
+  self.per_page = 9
 end

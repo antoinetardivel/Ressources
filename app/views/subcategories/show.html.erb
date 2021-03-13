@@ -1,37 +1,48 @@
-<ul>
-<% @ressources.each do |ressource|%>
-  <% if ressource.subcategory_id == @subcategory.id %>
-    <li><%= link_to ressource.title, ressource_path(ressource) %></li>
+<div class="rs-nav shadow-smooth mt-3">
+  <div class="rs-show-left d-flex">
+    <div class="rs-show-title ml-3">
+      <p class="text-white"><%= link_to 'Sous-catégories', subcategories_path %> > <%= @subcategory.title %></p>
+      
+      <h1 class="text-white font-weight-bold rs-show-title-txt"><%= @subcategory.title %></h1>
+    </div>
+  </div>
+</div>
+<div class="mt-3 d-flex justify-content-center">
+  <%= will_paginate @ressources_paginate, :previous_label => 'Précédent ', :next_label => ' Suivant' %>
+</div>
+<div class="rs-wrap mt-3">
+  <% @ressources_paginate.each.with_index do |ressource, index|%>
+    <% if ressource.subcategory_id == @subcategory.id %>
+      <div class="card rs-card bg-darker">
+          <div class="card-body">
+          <div class="d-flex">
+              <% if ressource.image.attached?  %>
+              <%= image_tag(ressource.image, :class => 'rs-card-img bg-dark d-flex justify-content-center align-items-center') %>
+              <% else %>
+              <div class="rs-card-img bg-dark d-flex justify-content-center align-items-center">
+                  <p class="text-center m-0 font-weight-bold no-logo">Pas de logo</p>
+              </div>
+              <% end %>
+              <div class="ml-3 rs-card-title-box">
+                  <h5 class="card-title text-white font-weight-bold"><%=ressource.title%></h5>
+                  <div class="d-flex mb-3">
+                      <%= link_to ressource.category.title , category_path(ressource.category), :class => 'card-text text-white' %>
+                      <%= link_to ressource.subcategory.title , subcategory_path(ressource.subcategory), :class => 'card-text ml-2 text-white' %>
+                  </div>
+              </div>
+          </div>
+              <p class="card-text text-white mb-3"><%=ressource.mini_description%></p>
+              <div class="d-flex justify-content-end">
+                  <%= link_to 'Voir plus' , ressource_path(ressource), :class => 'btn my-2 my-sm-0 btn-primary shadow-smooth' %>
+              </div>
+          </div>
+      </div>
+    <% end %>
   <% end %>
+</div>
+<div class="mt-3 d-flex justify-content-center">
+  <%= will_paginate @ressources_paginate, :previous_label => 'Précédent', :next_label => 'Suivant' %>
+</div>
+<% if user_signed_in? %>
+      <%= link_to 'Éditer la sous-catégorie', edit_subcategory_path(@subcategory), :class => 'btn btn-darker shadow-smooth mt-3' %>
 <% end %>
-</ul>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @subcategory.id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @subcategory.title %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @subcategory.color %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @subcategory.description %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @subcategory.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
-<%= link_to 'Back', subcategories_path %>

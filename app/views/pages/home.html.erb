@@ -1,17 +1,48 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<ul>
-<% lasts = @ressources.last(6) %>
-<% if !lasts.blank? %>
-    <% lasts.each.with_index do |ressource, index|%>
-        <li><%=ressource.id%></li>
-    <% end %>
+<div class="rs-nav shadow-smooth mt-3 violet-bg">
+  <div class="rs-show-left d-flex">
+    <div class="rs-show-title ml-3">      
+      <h1 class="text-white font-weight-bold rs-show-title-txt">Bienvenue</h1>
+      <p class="text-white">Ici vous trouverez des ressources, des outils ainsi des références dans le domaine du dégital.</p>
+    </div>
+  </div>
+</div>
+<h4 class="text-white font-weight-bold mt-5">Catégories de ressources :</h4>
+<% @categories.each do |category|%>
+  <%= link_to category.title, category_path(category), :class => 'btn btn-darker shadow-smooth mr-3 mt-3' %>
 <% end %>
-</ul>
-<% if user_signed_in? %>
-<%= link_to current_user.email, edit_user_registration_path %>
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to "Sign Up", new_user_registration_path %>
-<%= link_to "Log In", new_user_session_path %>
+<h4 class="text-white font-weight-bold mt-5">Dernières ressources ajoutées :</h4>
+<div class="rs-wrap mt-3">
+    <% lasts = @ressources.last(6) %>
+    <% if !lasts.blank? %>
+        <% lasts.each.with_index do |ressource, index|%>
+            <div class="card rs-card bg-darker">
+                <div class="card-body">
+                <div class="d-flex">
+                    <% if ressource.image.attached?  %>
+                    <%= image_tag(ressource.image, :class => 'rs-card-img bg-dark d-flex justify-content-center align-items-center') %>
+                    <% else %>
+                    <div class="rs-card-img bg-dark d-flex justify-content-center align-items-center">
+                        <p class="text-center m-0 font-weight-bold no-logo">Pas de logo</p>
+                    </div>
+                    <% end %>
+                    <div class="ml-3 rs-card-title-box">
+                        <h5 class="card-title text-white font-weight-bold"><%=ressource.title%></h5>
+                        <div class="d-flex mb-3">
+                            <%= link_to ressource.category.title , category_path(ressource.category), :class => 'card-text text-white' %>
+                            <%= link_to ressource.subcategory.title , subcategory_path(ressource.subcategory), :class => 'card-text ml-2 text-white' %>
+                        </div>
+                    </div>
+                </div>
+                    <p class="card-text text-white mb-3"><%=ressource.mini_description%></p>
+                    <div class="d-flex justify-content-end">
+                        <%= link_to 'Voir plus' , ressource_path(ressource), :class => 'btn my-2 my-sm-0 btn-primary shadow-smooth' %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+<h4 class="text-white font-weight-bold mt-5">Sous-catégories de ressources :</h4>
+<% @subcategories.each do |subcategory|%>
+  <%= link_to subcategory.title, subcategory_path(subcategory), :class => 'btn btn-darker shadow-smooth mr-3 mt-3' %>
 <% end %>
