@@ -75,8 +75,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # Add svg support
-  config.assets.precompile += %w( '.svg' )  
-
-  # Must include to get inline SVGs to work in deploy
-  config.assets.css_compressor = :sass
 end
