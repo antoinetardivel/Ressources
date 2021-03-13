@@ -16,6 +16,8 @@
     </div>
   </div>
 </div>
+<h4 class="text-white font-weight-bold mt-5">Description de la catégories :</h4>
+<p class="text-white"><%= @category.description %></p>
 <div class="mt-3 d-flex justify-content-center">
   <%= will_paginate @ressources_paginate, :previous_label => 'Précédent ', :next_label => ' Suivant' %>
 </div>

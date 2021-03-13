@@ -3,7 +3,7 @@
     <div class="rs-nav shadow-smooth">
       <div class="rs-show-left d-flex">
         <% if @ressource.image.attached?  %>
-          <%= image_tag(@ressource.image, :class => 'rs-show-img bg-dark d-flex justify-content-center align-items-center') %>
+          <%= image_tag(@ressource.image, :class => 'rs-show-img-banner bg-dark d-flex justify-content-center align-items-center') %>
         <% else %>
           <div class="rs-show-img bg-dark d-flex justify-content-center align-items-center">
               <p class="text-center m-0 font-weight-bold no-logo">Pas de logo</p>

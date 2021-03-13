@@ -45,6 +45,14 @@
     background-color: transparent !important;
     // filter: invert(96%) sepia(4%) saturate(16%) hue-rotate(132deg) brightness(102%) contrast(108%);
 }
+.rs-show-img-banner{
+    width: 10vw;
+    height: 10vw;
+    object-fit: cover;
+    background-color: transparent !important;
+    border-radius: 1em;
+    background-color: #1A1A1A;
+}
 @media only screen and (max-width: 992px)  {
     .ressource-container{
         display: flex;
