@@ -191,32 +191,6 @@ h1,h2,h3,h4,h5,h6,p{
 .btn-bartop{
     display: block;
 }
-@media only screen and (max-width: 992px)  {
-    .barlat{
-        height: 50px;
-    }
-    .btn-barlat{
-        display: block;
-        margin-left: 10px;
-        margin-top: 1em !important;
-    }
-    .btn-bartop{
-        display: none;
-    }
-}
-.barlat-cat-img{
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    margin-left: 10px;
-    background-color: #1A1A1A;
-    border-radius: 0.5em;
-}
-.barlat-cat-link{
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-}
 .arrow{
     height: 22px;
     width: 30px;
@@ -251,6 +225,54 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .arrow{
     cursor: pointer;
+}
+@media only screen and (max-width: 992px)  {
+    .barlat{
+        height: 50px;
+    }
+    .btn-barlat{
+        display: block;
+        margin-left: 10px;
+        margin-top: 1em !important;
+    }
+    .btn-bartop{
+        display: none;
+    }
+    .barlat{
+        width: 40px;
+        border-top-right-radius: 1em;
+        border-bottom-right-radius: 1em;
+    }
+    .arrow{
+        height: 22px;
+        width: 20px;
+        margin: 10px;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    .arrow1{
+        width: 20px;
+    }
+    .arrow2{
+        width: 20px;
+    }
+    .arrow3{
+        width: 20px;
+    }
+    
+}
+.barlat-cat-img{
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    margin-left: 10px;
+    background-color: #1A1A1A;
+    border-radius: 0.5em;
+}
+.barlat-cat-link{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
 }
 .previous_page{
     margin-right: 5px;

@@ -18,10 +18,13 @@ document.addEventListener('turbolinks:load', function(){
     
                 barlat.style.width = '100%'
                 barlat.style.height = 'calc(100vh - 1em + 85px)'
-    
+
+                arrow.style.marginRight = '20px'
+
                 arrow1.style.width = '15px'
                 arrow1.style.transform = 'rotateZ(-45deg)'
     
+                arrow2.style.width = '30px'
                 arrow2.style.marginTop = '3px'
     
                 arrow3.style.width = '15px'
@@ -29,13 +32,13 @@ document.addEventListener('turbolinks:load', function(){
                 arrow3.style.marginTop = '3px'
     
             }else{
-    
                 barlat.style.width = '500px'
                 barlat.style.height = '80vh'
     
                 arrow1.style.width = '15px'
                 arrow1.style.transform = 'rotateZ(-45deg)'
     
+                arrow2.style.width = '30px'
                 arrow2.style.marginTop = '3px'
     
                 arrow3.style.width = '15px'
@@ -48,15 +51,18 @@ document.addEventListener('turbolinks:load', function(){
 
             if(window.innerWidth < 992){
 
-                barlat.style.width = '60px'
-                barlat.style.height = '50px'
+                barlat.style.width = '40px'
+                barlat.style.height = '40px'
     
-                arrow1.style.width = '30px'
+                arrow.style.marginRight = '10px'
+
+                arrow1.style.width = '20px'
                 arrow1.style.transform = 'rotateZ(0deg)'
     
+                arrow2.style.width = '20px'
                 arrow2.style.marginTop = '6px'
     
-                arrow3.style.width = '30px'
+                arrow3.style.width = '20px'
                 arrow3.style.transform = 'rotateZ(0deg)'
                 arrow3.style.marginTop = '6px'
     
@@ -67,7 +73,8 @@ document.addEventListener('turbolinks:load', function(){
     
                 arrow1.style.width = '30px'
                 arrow1.style.transform = 'rotateZ(0deg)'
-    
+                
+                arrow2.style.width = '30px'
                 arrow2.style.marginTop = '6px'
     
                 arrow3.style.width = '30px'
