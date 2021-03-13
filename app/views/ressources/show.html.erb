@@ -30,7 +30,7 @@
       <% end %>
     <% end %>
     <% if @ressource.link2?  %>
-      <p class="text-white mt-3"><span class="font-weight-bold">Lien utile :</span> <%= @ressource.link2 %></p>
+      <p class="text-white mt-3"><span class="font-weight-bold">Lien utile :</span> <a class="linkbonus" href="https://<%= @ressource.link2 %>" target="_blank"><%= @ressource.link2 %></a></p>
     <% end %>
     <h4 class="text-white font-weight-bold">Description:</h4>
     <p class="text-white mt-3"><%= @ressource.description %></p>
