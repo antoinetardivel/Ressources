@@ -27,7 +27,7 @@
                     <% end %>
                     <div class="ml-3 rs-card-title-box">
                         <h5 class="card-title text-white font-weight-bold"><%=ressource.title%></h5>
-                        <div class="d-flex mb-3">
+                        <div class="d-flex mb-3 flex-wrap">
                             <%= link_to ressource.category.title , category_path(ressource.category), :class => 'card-text text-white' %>
                             <%= link_to ressource.subcategory.title , subcategory_path(ressource.subcategory), :class => 'card-text ml-2 text-white' %>
                         </div>
