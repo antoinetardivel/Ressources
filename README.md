@@ -1,6 +1,6 @@
 # README
 
-[Tester le projet](https://www.ressources-antoine-tardivel.herokuapp.com)
+[Tester le projet](ressources-antoine-tardivel.herokuapp.com)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
