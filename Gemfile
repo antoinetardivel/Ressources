@@ -16,7 +16,7 @@ gem 'devise'
 gem 'aws-sdk-s3', require: false
 gem "figaro"
 gem 'inline_svg'
-gem 'dotenv-rails'
+#gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
