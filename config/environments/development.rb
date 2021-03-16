@@ -75,4 +75,15 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # Add svg support
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "example.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: Rails.application.credentials.aws[:gmail][:username],
+    password: Rails.application.credentials.aws[:gmail][:password]
+  }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
